@@ -24,7 +24,7 @@ public class HibernateManager
             session.close();
         }
         if(sessionFactory != null && sessionFactory.isOpen()) {
-            session.close();
+            sessionFactory.close();
         }
     }
 
