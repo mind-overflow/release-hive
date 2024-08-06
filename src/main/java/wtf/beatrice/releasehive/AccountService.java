@@ -8,8 +8,8 @@ public class AccountService
 
     public void registerUser(User user) {
         Session session = HibernateManager.getSession();
-        Transaction tx = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(user);
-        tx.commit();
+        transaction.commit();
     }
 }
