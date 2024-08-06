@@ -17,7 +17,6 @@ public class User
     @Column
     private String username;
 
-
     @Column
     private String password;
 
@@ -43,7 +42,5 @@ public class User
 
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
-
-
     }
 }

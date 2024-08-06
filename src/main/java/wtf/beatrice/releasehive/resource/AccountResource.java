@@ -11,7 +11,7 @@ import wtf.beatrice.releasehive.service.AccountService;
 public class AccountResource {
 
     private final AccountService accountService;
-    
+
     public AccountResource(@Autowired AccountService accountService) {
         this.accountService = accountService;
     }
