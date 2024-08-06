@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive;
+package wtf.beatrice.releasehive.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,6 +7,11 @@ import org.apache.logging.log4j.Logger;
 
 public class JsonUtil
 {
+
+    private JsonUtil() {
+        throw new AssertionError("Utility class");
+    }
+
     private static final Logger LOGGER = LogManager.getLogger(JsonUtil.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
 

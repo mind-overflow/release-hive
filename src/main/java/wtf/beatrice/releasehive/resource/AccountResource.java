@@ -1,8 +1,9 @@
-package wtf.beatrice.releasehive;
+package wtf.beatrice.releasehive.resource;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
+import wtf.beatrice.releasehive.util.JsonUtil;
+import wtf.beatrice.releasehive.model.User;
+import wtf.beatrice.releasehive.service.AccountService;
 
 import java.util.UUID;
 
@@ -18,10 +19,7 @@ public class AccountResource {
             produces="application/json")
     public String register(@RequestBody User user)
     {
-        UUID id = UUID.randomUUID();
-        user.setUuid(id);
         accountService.registerUser(user);
-
         return JsonUtil.convertToJson(user);
     }
 }

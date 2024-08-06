@@ -1,7 +1,9 @@
-package wtf.beatrice.releasehive;
+package wtf.beatrice.releasehive.service;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import wtf.beatrice.releasehive.db.HibernateManager;
+import wtf.beatrice.releasehive.model.User;
 
 public class AccountService
 {

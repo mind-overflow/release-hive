@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import wtf.beatrice.releasehive.db.HibernateManager;
+import wtf.beatrice.releasehive.model.User;
 
 import java.util.List;
 

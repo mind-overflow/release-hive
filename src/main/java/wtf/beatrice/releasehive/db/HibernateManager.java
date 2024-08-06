@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive;
+package wtf.beatrice.releasehive.db;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

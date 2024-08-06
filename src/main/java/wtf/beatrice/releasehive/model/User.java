@@ -1,10 +1,8 @@
-package wtf.beatrice.releasehive;
+package wtf.beatrice.releasehive.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.UUID;
 
 @Entity
@@ -13,7 +11,7 @@ public class User
 {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @Column
