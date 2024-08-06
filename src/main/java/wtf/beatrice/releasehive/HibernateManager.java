@@ -7,7 +7,6 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateManager
 {
-    private static HibernateManager instance;
     private static Session session;
     private static SessionFactory sessionFactory;
 
