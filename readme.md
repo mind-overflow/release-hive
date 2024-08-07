@@ -6,7 +6,7 @@
 [![Maintainability Rating](https://sonar.beatrice.wtf/api/project_badges/measure?project=relhive&metric=sqale_rating&token=sqb_4f7b91f9a42424c2435f3d14de1fe4654a3cab5d)](https://sonar.beatrice.wtf/dashboard?id=relhive)
 
 
-*pure java software backend for software release management*  
+*pure java server backend for software release management*  
   
 ## running  
 ### database requirements  
