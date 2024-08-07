@@ -13,9 +13,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
-import wtf.beatrice.releasehive.model.User;
-import wtf.beatrice.releasehive.service.JWTService;
-import wtf.beatrice.releasehive.service.UserDetailsExtendedService;
+import wtf.beatrice.releasehive.models.User;
+import wtf.beatrice.releasehive.services.JWTService;
+import wtf.beatrice.releasehive.services.UserDetailsExtendedService;
 
 import java.io.IOException;
 

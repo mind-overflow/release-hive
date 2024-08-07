@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive.service;
+package wtf.beatrice.releasehive.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -7,7 +7,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import wtf.beatrice.releasehive.model.User;
+import wtf.beatrice.releasehive.models.User;
 
 import java.security.Key;
 import java.util.Date;

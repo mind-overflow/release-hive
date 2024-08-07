@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive.resource;
+package wtf.beatrice.releasehive.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import wtf.beatrice.releasehive.dto.LoginUserDto;
-import wtf.beatrice.releasehive.dto.RegisterUserDto;
-import wtf.beatrice.releasehive.model.LoginResponse;
-import wtf.beatrice.releasehive.model.User;
-import wtf.beatrice.releasehive.service.AccountService;
-import wtf.beatrice.releasehive.service.JWTService;
+import wtf.beatrice.releasehive.dtos.LoginUserDto;
+import wtf.beatrice.releasehive.dtos.RegisterUserDto;
+import wtf.beatrice.releasehive.models.LoginResponse;
+import wtf.beatrice.releasehive.models.User;
+import wtf.beatrice.releasehive.services.AccountService;
+import wtf.beatrice.releasehive.services.JWTService;
 
 @RestController
 @RequestMapping("/api/v1/auth")

@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive.resource;
+package wtf.beatrice.releasehive.resources;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import wtf.beatrice.releasehive.model.User;
-import wtf.beatrice.releasehive.service.UserService;
+import wtf.beatrice.releasehive.models.User;
+import wtf.beatrice.releasehive.services.UserService;
 
 import java.util.List;
 

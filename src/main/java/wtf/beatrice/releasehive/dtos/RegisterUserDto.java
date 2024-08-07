@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive.dto;
+package wtf.beatrice.releasehive.dtos;
 
 public class RegisterUserDto
 {

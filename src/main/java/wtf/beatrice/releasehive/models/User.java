@@ -1,4 +1,4 @@
-package wtf.beatrice.releasehive.model;
+package wtf.beatrice.releasehive.models;
 
 
 import jakarta.persistence.*;

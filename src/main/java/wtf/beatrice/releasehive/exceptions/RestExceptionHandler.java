@@ -14,9 +14,9 @@ import java.nio.file.AccessDeniedException;
 import java.security.SignatureException;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler
+public class RestExceptionHandler
 {
-    private static final Logger LOGGER = LogManager.getLogger(GlobalExceptionHandler.class);
+    private static final Logger LOGGER = LogManager.getLogger(RestExceptionHandler.class);
     private static final String DESCRIPTION_PROPERTY = "description";
 
     @ExceptionHandler(Exception.class)

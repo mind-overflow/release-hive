@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import wtf.beatrice.releasehive.repository.UserRepository;
+import wtf.beatrice.releasehive.repositories.UserRepository;
 
 @Configuration
 public class ApplicationConfiguration

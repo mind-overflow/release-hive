@@ -1,9 +1,9 @@
-package wtf.beatrice.releasehive.service;
+package wtf.beatrice.releasehive.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wtf.beatrice.releasehive.model.User;
-import wtf.beatrice.releasehive.repository.UserRepository;
+import wtf.beatrice.releasehive.models.User;
+import wtf.beatrice.releasehive.repositories.UserRepository;
 
 import java.util.List;
 
