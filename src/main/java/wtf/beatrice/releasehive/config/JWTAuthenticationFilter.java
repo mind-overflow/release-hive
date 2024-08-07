@@ -15,7 +15,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import wtf.beatrice.releasehive.models.User;
 import wtf.beatrice.releasehive.services.JWTService;
-import wtf.beatrice.releasehive.services.UserDetailsExtendedService;
+import wtf.beatrice.releasehive.services.UserService;
 
 import java.io.IOException;
 
@@ -25,14 +25,14 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter
     private final HandlerExceptionResolver handlerExceptionResolver;
 
     private final JWTService jwtService;
-    private final UserDetailsExtendedService userDetailsService;
+    private final UserService userService;
 
     public JWTAuthenticationFilter(
             @Autowired JWTService jwtService,
-            @Autowired UserDetailsExtendedService userDetailsService,
+            @Autowired UserService userService,
             @Autowired HandlerExceptionResolver handlerExceptionResolver) {
         this.jwtService = jwtService;
-        this.userDetailsService = userDetailsService;
+        this.userService = userService;
         this.handlerExceptionResolver = handlerExceptionResolver;
     }
 
@@ -57,7 +57,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
             if (email != null && authentication == null) {
-                User userDetails = this.userDetailsService.loadUserByEmail(email);
+                User userDetails = userService.loadUserByEmail(email);
 
                 if (jwtService.isTokenValid(jwt, userDetails)) {
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

@@ -43,9 +43,7 @@ public class AccountServiceImpl implements AccountService {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         user.getEmail(),
-                        user.getPassword()
-                )
-        );
+                        user.getPassword()));
 
         return userRepository.findByEmail(user.getEmail())
                 .orElseThrow();
