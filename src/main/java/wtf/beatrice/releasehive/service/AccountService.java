@@ -5,5 +5,5 @@ import wtf.beatrice.releasehive.model.User;
 public interface AccountService
 {
 
-    void registerUser(User user);
+    String registerUser(User user);
 }

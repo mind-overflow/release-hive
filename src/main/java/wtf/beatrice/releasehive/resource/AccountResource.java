@@ -6,8 +6,8 @@ import wtf.beatrice.releasehive.util.JsonUtil;
 import wtf.beatrice.releasehive.model.User;
 import wtf.beatrice.releasehive.service.AccountService;
 
-@RequestMapping("/api/v1/users")
 @RestController
+@RequestMapping("/api/v1/users")
 public class AccountResource {
 
     private final AccountService accountService;
@@ -22,7 +22,6 @@ public class AccountResource {
             produces="application/json")
     public String register(@RequestBody User user)
     {
-        accountService.registerUser(user);
-        return JsonUtil.convertToJson(user);
+        return accountService.registerUser(user);
     }
 }
