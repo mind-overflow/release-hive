@@ -36,8 +36,7 @@ public class Main {
         transaction.commit();
 
         users.forEach(user -> LOGGER.info("ID: {}, Name: {}", user.getUuid(), user.getUsername()));
-
-    }
+}
 
     private static final Thread shutdownHook = new Thread(() -> {
         HibernateManager.shutdown();
