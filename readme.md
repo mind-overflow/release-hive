@@ -25,8 +25,8 @@ the build process currently happens with maven.
 specific build and release steps have not been specified yet.  
   
 ## support
-| category            | info                                                       |
-|---------------------|------------------------------------------------------------|
-| official repository | [gitea src](https://git.beatrice.wtf/bea/release-hive.git) |
-| build status        | [drone-ci](https://drone.beatrice.wtf/bea/release-hive)    |
-| dev email           | [hello@beatrice.wtf](mailto:hello@beatrice.wtf)            |
+| category            | info                                                              |
+|---------------------|-------------------------------------------------------------------|
+| official repository | [release-hive src](https://git.beatrice.wtf/bea/release-hive.git) |
+| build status        | [drone-ci](https://drone.beatrice.wtf/bea/release-hive)           |
+| dev email           | [hello@beatrice.wtf](mailto:hello@beatrice.wtf)                   |
