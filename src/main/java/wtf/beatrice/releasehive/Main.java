@@ -18,21 +18,24 @@ public class Main {
 
     public static void main(String[] args) {
         LOGGER.info("Hello world!");
+
+        LOGGER.info("Registering shutdown hooks");
         Runtime.getRuntime().addShutdownHook(shutdownHook);
+
+        LOGGER.info("Initializing database backend");
+        HibernateManager.initialize();
 
         LOGGER.info("Initializing Spring Boot");
         SpringApplication.run(Main.class, args);
-        LOGGER.info("Spring Boot initialized!");
 
-        HibernateManager.initialize();
+        LOGGER.info("Spring Boot & DB initialized!");
 
         Session session = HibernateManager.getSession();
         Transaction transaction = session.beginTransaction();
         List<User> users = session.createQuery("FROM User", User.class).getResultList();
-        for (User user : users) {
-            LOGGER.info("ID: {}, Name: {}", user.getUuid(), user.getUsername());
-        }
         transaction.commit();
+
+        users.forEach(user -> LOGGER.info("ID: {}, Name: {}", user.getUuid(), user.getUsername()));
 
     }
 

@@ -17,7 +17,6 @@ public class AccountServiceImpl implements AccountService {
             return JsonUtil.spawnJsonError("Cannot register user without username");
         }
 
-
         if(null == user.getPassword() || user.getPassword().isEmpty()) {
             return JsonUtil.spawnJsonError("Cannot register user without password");
         }
