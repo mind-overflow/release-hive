@@ -27,6 +27,7 @@ specific build and release steps have not been specified yet.
 ## support
 | category            | info                                                              |
 |---------------------|-------------------------------------------------------------------|
+| official wiki       | [release-hive wiki](https://wiki.beatrice.wtf/en/release-hive)    |
 | official repository | [release-hive src](https://git.beatrice.wtf/bea/release-hive.git) |
 | build status        | [drone-ci](https://drone.beatrice.wtf/bea/release-hive)           |
 | dev email           | [hello@beatrice.wtf](mailto:hello@beatrice.wtf)                   |
