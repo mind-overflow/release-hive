@@ -17,6 +17,7 @@ import java.security.SignatureException;
 public class GlobalExceptionHandler
 {
     private static final Logger LOGGER = LogManager.getLogger(GlobalExceptionHandler.class);
+    private static final String DESCRIPTION_PROPERTY = "description";
 
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleSecurityException(Exception exception) {
@@ -26,34 +27,34 @@ public class GlobalExceptionHandler
 
         if (exception instanceof BadCredentialsException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(401), exception.getMessage());
-            errorDetail.setProperty("description", "Invalid email or password");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Invalid email or password");
 
             return errorDetail;
         }
 
         if (exception instanceof AccountStatusException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(403), exception.getMessage());
-            errorDetail.setProperty("description", "Account locked");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Account locked");
         }
 
         if (exception instanceof AccessDeniedException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(403), exception.getMessage());
-            errorDetail.setProperty("description", "You are not authorized to access this resource");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "You are not authorized to access this resource");
         }
 
         if (exception instanceof SignatureException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(403), exception.getMessage());
-            errorDetail.setProperty("description", "Invalid JWT signature");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Invalid JWT signature");
         }
 
         if (exception instanceof ExpiredJwtException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(403), exception.getMessage());
-            errorDetail.setProperty("description", "Expired JWT token");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Expired JWT token");
         }
 
         if (errorDetail == null) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), exception.getMessage());
-            errorDetail.setProperty("description", "Internal server error");
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Internal server error");
         }
 
         return errorDetail;
