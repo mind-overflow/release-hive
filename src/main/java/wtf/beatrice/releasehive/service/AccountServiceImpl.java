@@ -1,18 +1,14 @@
 package wtf.beatrice.releasehive.service;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import wtf.beatrice.releasehive.db.HibernateManager;
 import wtf.beatrice.releasehive.dto.LoginUserDto;
 import wtf.beatrice.releasehive.dto.RegisterUserDto;
 import wtf.beatrice.releasehive.model.User;
 import wtf.beatrice.releasehive.repository.UserRepository;
-import wtf.beatrice.releasehive.util.JsonUtil;
 
 @Service
 public class AccountServiceImpl implements AccountService {
