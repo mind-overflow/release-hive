@@ -8,6 +8,11 @@
 
 *pure java software backend for software release management*  
   
+## running  
+### database requirements  
+set up a database server with postgresql.
+this is currently the only supported database backend.
+  
 ## building  
 ### required tools  
    
