@@ -20,8 +20,8 @@ public class AccountServiceImpl implements AccountService {
     public AccountServiceImpl(
             @Autowired UserRepository userRepository,
             @Autowired AuthenticationManager authenticationManager,
-            @Autowired PasswordEncoder passwordEncoder
-    ) {
+            @Autowired PasswordEncoder passwordEncoder)
+    {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;

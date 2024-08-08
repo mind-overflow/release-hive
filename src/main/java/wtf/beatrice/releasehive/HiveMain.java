@@ -12,9 +12,9 @@ import wtf.beatrice.releasehive.models.User;
 import java.util.List;
 
 @SpringBootApplication
-public class Main {
+public class HiveMain {
 
-    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+    private static final Logger LOGGER = LogManager.getLogger(HiveMain.class);
 
     public static void main(String[] args) {
         LOGGER.info("Hello world!");
@@ -26,7 +26,7 @@ public class Main {
         HibernateManager.initialize();
 
         LOGGER.info("Initializing Spring Boot");
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(HiveMain.class, args);
 
         LOGGER.info("Spring Boot & DB initialized!");
 
@@ -35,7 +35,13 @@ public class Main {
         List<User> users = session.createQuery("FROM User", User.class).getResultList();
         transaction.commit();
 
-        users.forEach(user -> LOGGER.info("ID: {}, Name: {}", user.getUuid(), user.getUsername()));
+        StringBuilder usersListBuilder = new StringBuilder("[");
+        users.forEach(user -> usersListBuilder.append(user.getUsername()).append(","));
+        usersListBuilder.deleteCharAt(usersListBuilder.length() - 1);
+        usersListBuilder.append("]");
+
+
+        LOGGER.info("Found users: {}, Total: {}", usersListBuilder, users.size());
 }
 
     private static final Thread shutdownHook = new Thread(() -> {
