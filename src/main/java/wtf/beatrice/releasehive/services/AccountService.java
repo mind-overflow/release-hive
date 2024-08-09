@@ -10,5 +10,5 @@ public interface AccountService
 
     User register(RegisterUserDto user) throws BadRequestException;
 
-    User login(LoginUserDto user);
+    User authenticate(LoginUserDto user) throws BadRequestException;
 }

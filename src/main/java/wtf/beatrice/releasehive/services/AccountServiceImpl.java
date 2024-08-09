@@ -71,15 +71,35 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public User login(LoginUserDto user) {
+    public User authenticate(LoginUserDto userDto) throws BadRequestException {
+
+        if (userDto.getEmail() == null ||
+                userDto.getEmail().isEmpty() ||
+                userDto.getPassword() == null ||
+                userDto.getPassword().isEmpty()) {
+
+            throw new BadRequestException("Please provide a valid email and password");
+        }
+
+        if(!userDto.getEmail().matches(InternalConfiguration.EMAIL_REGEX_RCF)) {
+            throw new BadRequestException("Invalid email format");
+        }
+
+        if(!userDto.getPassword().matches(InternalConfiguration.PASSWORD_REGEX)) {
+            throw new BadRequestException("Invalid password format");
+        }
+
+        if (!userRepository.findByEmail(userDto.getEmail()).isPresent()) {
+            throw new BadRequestException("No account registered with this email");
+        }
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        user.getEmail(),
-                        user.getPassword()));
+                        userDto.getEmail(),
+                        userDto.getPassword()));
 
-        return userRepository.findByEmail(user.getEmail())
+        return userRepository.findByEmail(userDto.getEmail())
                 .orElseThrow();
     }
-
 
 }

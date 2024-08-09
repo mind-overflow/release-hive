@@ -39,9 +39,8 @@ public class AuthResource {
     @PostMapping(
             value="/login",
             produces="application/json")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginUserDto userDto)
-    {
-        User authenticatedUser = accountService.login(userDto);
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginUserDto userDto) throws BadRequestException {
+        User authenticatedUser = accountService.authenticate(userDto);
 
         String jwtToken = jwtService.generateToken(authenticatedUser);
 
