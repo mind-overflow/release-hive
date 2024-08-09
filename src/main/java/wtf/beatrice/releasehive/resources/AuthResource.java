@@ -1,6 +1,8 @@
 package wtf.beatrice.releasehive.resources;
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,12 +17,12 @@ import wtf.beatrice.releasehive.services.JWTService;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-public class AccountResource {
+public class AuthResource {
 
     private final AccountService accountService;
     private final JWTService jwtService;
 
-    public AccountResource(
+    public AuthResource(
             @Autowired AccountService accountService,
             @Autowired JWTService jwtService) {
         this.accountService = accountService;
@@ -30,8 +32,7 @@ public class AccountResource {
     @PostMapping(
             value="/register",
             produces="application/json")
-    public ResponseEntity<User> register(@RequestBody RegisterUserDto userDto)
-    {
+    public ResponseEntity<User> register(@RequestBody RegisterUserDto userDto) throws BadRequestException {
         User user = accountService.register(userDto);
         return ResponseEntity.ok(user);
     }

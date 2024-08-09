@@ -1,6 +1,7 @@
 package wtf.beatrice.releasehive.exceptions;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import org.apache.coyote.BadRequestException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatusCode;
@@ -24,6 +25,11 @@ public class RestExceptionHandler
         ProblemDetail errorDetail = null;
 
         LOGGER.error(exception);
+
+        if(exception instanceof BadRequestException) {
+            errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), exception.getMessage());
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Bad request");
+        }
 
         if (exception instanceof BadCredentialsException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(401), exception.getMessage());
