@@ -2,8 +2,6 @@ package wtf.beatrice.releasehive.services;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 import wtf.beatrice.releasehive.config.InternalConfiguration;
 import wtf.beatrice.releasehive.dtos.LoginUserDto;
 import wtf.beatrice.releasehive.dtos.RegisterUserDto;
-import wtf.beatrice.releasehive.exceptions.HiveException;
 import wtf.beatrice.releasehive.models.User;
 import wtf.beatrice.releasehive.repositories.UserRepository;
 
