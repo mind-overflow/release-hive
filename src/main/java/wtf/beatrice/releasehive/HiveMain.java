@@ -17,8 +17,7 @@ public class HiveMain {
     private static final Logger LOGGER = LogManager.getLogger(HiveMain.class);
 
     public static void main(String[] args) {
-        LOGGER.info("Hello world!");
-
+        
         LOGGER.info("Registering shutdown hooks");
         Runtime.getRuntime().addShutdownHook(shutdownHook);
 
