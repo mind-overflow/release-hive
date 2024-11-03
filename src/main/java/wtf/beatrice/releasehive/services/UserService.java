@@ -12,4 +12,6 @@ public interface UserService
     User loadUserByUsername(String username) throws UsernameNotFoundException;
 
     User loadUserByEmail(String email) throws UsernameNotFoundException;
+
+    void deleteUser(String email);
 }

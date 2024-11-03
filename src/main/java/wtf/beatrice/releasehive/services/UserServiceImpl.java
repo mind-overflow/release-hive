@@ -31,4 +31,12 @@ public class UserServiceImpl implements UserService
     public User loadUserByEmail(String email) throws UsernameNotFoundException {
         return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(email));
     }
+
+    @Override
+    public void deleteUser(String email) {
+        if (userRepository.findByEmail(email).isEmpty()) {
+            throw new UsernameNotFoundException(email);
+        }
+        userRepository.delete(userRepository.findByEmail(email).get());
+    }
 }
