@@ -40,8 +40,8 @@ public class HiveMain {
         usersListBuilder.deleteCharAt(usersListBuilder.length() - 1);
         usersListBuilder.append("]");
 
-
-        LOGGER.info("Found users: {}, Total: {}", usersListBuilder, users.size());
+        LOGGER.info("Found users: {}", usersListBuilder);
+        LOGGER.info("Total: {}", users.size());
 }
 
     private static final Thread shutdownHook = new Thread(() -> {
