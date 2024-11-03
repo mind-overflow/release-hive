@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import wtf.beatrice.releasehive.models.User;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface UserService
 {
@@ -13,5 +14,5 @@ public interface UserService
 
     User loadUserByEmail(String email) throws UsernameNotFoundException;
 
-    void deleteUser(String email);
+    boolean deleteUser(UUID id);
 }

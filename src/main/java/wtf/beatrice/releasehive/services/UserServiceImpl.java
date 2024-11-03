@@ -7,6 +7,7 @@ import wtf.beatrice.releasehive.models.User;
 import wtf.beatrice.releasehive.repositories.UserRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -33,10 +34,11 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public void deleteUser(String email) {
-        if (userRepository.findByEmail(email).isEmpty()) {
-            throw new UsernameNotFoundException(email);
+    public boolean deleteUser(UUID id) {
+        if (userRepository.findById(id).isEmpty()) {
+            throw new UsernameNotFoundException(id.toString());
         }
-        userRepository.delete(userRepository.findByEmail(email).get());
+        userRepository.delete(userRepository.findById(id).get());
+        return true;
     }
 }

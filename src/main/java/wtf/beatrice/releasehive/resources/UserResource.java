@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wtf.beatrice.releasehive.models.User;
 import wtf.beatrice.releasehive.services.UserService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -41,6 +40,15 @@ public class UserResource
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
+    }
+
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = "application/json")
+    public ResponseEntity<Boolean> deleteUser(@PathVariable("id") String id) {
+        UUID uuid = UUID.fromString(id);
+        boolean deleted = userService.deleteUser(uuid);
+        return ResponseEntity.ok(deleted);
     }
 
 }

@@ -26,6 +26,11 @@ public class RestExceptionHandler
 
         LOGGER.error(exception);
 
+        if(exception instanceof IllegalArgumentException) {
+            errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), exception.getMessage());
+            errorDetail.setProperty(DESCRIPTION_PROPERTY, "Invalid argument cannot be parsed");
+        }
+
         if(exception instanceof BadRequestException) {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), exception.getMessage());
             errorDetail.setProperty(DESCRIPTION_PROPERTY, "Bad request");
