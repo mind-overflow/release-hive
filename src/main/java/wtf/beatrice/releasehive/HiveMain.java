@@ -17,7 +17,7 @@ public class HiveMain {
     private static final Logger LOGGER = LogManager.getLogger(HiveMain.class);
 
     public static void main(String[] args) {
-        
+
         LOGGER.info("Registering shutdown hooks");
         Runtime.getRuntime().addShutdownHook(shutdownHook);
 
@@ -26,7 +26,6 @@ public class HiveMain {
 
         LOGGER.info("Initializing Spring Boot");
         SpringApplication.run(HiveMain.class, args);
-
         LOGGER.info("Spring Boot & DB initialized!");
 
         Session session = HibernateManager.getSession();
