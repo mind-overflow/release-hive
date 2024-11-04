@@ -2,6 +2,7 @@ package wtf.beatrice.releasehive.resources;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +31,7 @@ public class AuthResource {
 
     @PostMapping(
             value="/register",
-            produces="application/json")
+            produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> register(@RequestBody RegisterUserDto userDto) throws BadRequestException {
         User user = accountService.register(userDto);
         return ResponseEntity.ok(user);
@@ -38,7 +39,7 @@ public class AuthResource {
 
     @PostMapping(
             value="/login",
-            produces="application/json")
+            produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<LoginResponse> login(@RequestBody LoginUserDto userDto) throws BadRequestException {
         User authenticatedUser = accountService.authenticate(userDto);
 

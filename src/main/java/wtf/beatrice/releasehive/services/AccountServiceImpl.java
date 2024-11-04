@@ -4,9 +4,11 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import wtf.beatrice.releasehive.config.InternalConfiguration;
+import wtf.beatrice.releasehive.dtos.EditUsernameAccountDto;
 import wtf.beatrice.releasehive.dtos.LoginUserDto;
 import wtf.beatrice.releasehive.dtos.RegisterUserDto;
 import wtf.beatrice.releasehive.models.User;
@@ -100,6 +102,17 @@ public class AccountServiceImpl implements AccountService {
 
         return userRepository.findByEmail(userDto.getEmail())
                 .orElseThrow();
+    }
+
+    @Override
+    public String changeUsername(EditUsernameAccountDto editData) {
+        User user = userRepository
+                .findById(editData.getUuid())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        user.setUsername(editData.getUsername());
+        userRepository.save(user);
+        return user.getUsername();
     }
 
 }

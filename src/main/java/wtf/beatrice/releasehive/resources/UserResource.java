@@ -2,6 +2,7 @@ package wtf.beatrice.releasehive.resources;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,7 +26,7 @@ public class UserResource
 
     @GetMapping(
             value = "/me",
-            produces = "application/json")
+            produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> authenticatedUser() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -36,19 +37,9 @@ public class UserResource
 
     @GetMapping(
             value = "/all",
-            produces = "application/json")
+            produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
-
-    @DeleteMapping(
-            value = "/delete/{id}",
-            produces = "application/json")
-    public ResponseEntity<Boolean> deleteUser(@PathVariable("id") String id) {
-        UUID uuid = UUID.fromString(id);
-        boolean deleted = userService.deleteUser(uuid);
-        return ResponseEntity.ok(deleted);
-    }
-
 }
