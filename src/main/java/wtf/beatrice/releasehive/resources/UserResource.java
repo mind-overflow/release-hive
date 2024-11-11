@@ -11,7 +11,6 @@ import wtf.beatrice.releasehive.models.User;
 import wtf.beatrice.releasehive.services.UserService;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/users")
