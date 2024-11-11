@@ -38,7 +38,9 @@ public class UserServiceImpl implements UserService
         if (userRepository.findById(id).isEmpty()) {
             throw new UsernameNotFoundException(id.toString());
         }
-        userRepository.delete(userRepository.findById(id).get());
+        if (userRepository.findById(id).isPresent()) {
+            userRepository.delete(userRepository.findById(id).get());
+        }
         return true;
     }
 }
