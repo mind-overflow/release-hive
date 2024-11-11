@@ -35,12 +35,10 @@ public class UserServiceImpl implements UserService
 
     @Override
     public boolean deleteUser(UUID id) {
-        if (userRepository.findById(id).isEmpty()) {
-            throw new UsernameNotFoundException("User not found");
-        }
-        if (userRepository.findById(id).isPresent()) {
-            userRepository.delete(userRepository.findById(id).get());
-        }
+        userRepository.delete(userRepository
+                .findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found")));
+
         return true;
     }
 }
