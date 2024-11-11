@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import wtf.beatrice.releasehive.db.HibernateManager;
-import wtf.beatrice.releasehive.dtos.UserDto;
+import wtf.beatrice.releasehive.models.User;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class HiveMain {
 
         Session session = HibernateManager.getSession();
         Transaction transaction = session.beginTransaction();
-        List<UserDto> users = session.createQuery("FROM User", UserDto.class).getResultList();
+        List<User> users = session.createQuery("FROM User", User.class).getResultList();
         transaction.commit();
 
         StringBuilder usersListBuilder = new StringBuilder("[");
