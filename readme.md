@@ -16,7 +16,7 @@ this is currently the only supported database backend.
 ## building  
 ### required tools  
    
- - java 17+ sdk  
+ - java 21+ sdk  
  - git  
  - maven  
   
