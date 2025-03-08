@@ -7,7 +7,7 @@ platform:
 steps:
   # test if it compiles correctly
   - name: build
-    image: maven:3-eclipse-temurin-17
+    image: maven:3-eclipse-temurin-21
     commands:
       - mvn verify --no-transfer-progress -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
@@ -19,7 +19,7 @@ steps:
 
   # run code analysis
   - name: code-analysis
-    image: maven:3-eclipse-temurin-17
+    image: maven:3-eclipse-temurin-21
     commands:
       - mvn sonar:sonar --no-transfer-progress -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.host.url=$SONAR_INSTANCE_URL -Dsonar.login=$SONAR_LOGIN_KEY -B -V
     environment:
