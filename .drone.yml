@@ -8,6 +8,10 @@ trigger:
   event:
     - push
     - pull_request
+  branch:
+    include:
+      - main
+      - develop
 
 steps:
   # test if it compiles correctly
