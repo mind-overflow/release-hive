@@ -24,6 +24,9 @@ steps:
 
   # check maven dependencies
   - name: dependency-check
+    when:
+      event:
+        - push
     image: maven:3-eclipse-temurin-21
     commands:
       - mvn dependency-check:check --no-transfer-progress -B -V -DnvdApiKey=$NVD_API_KEY
@@ -33,6 +36,9 @@ steps:
 
   # run code analysis
   - name: code-analysis
+    when:
+      event:
+        - push
     image: maven:3-eclipse-temurin-21
     commands:
       - mvn sonar:sonar --no-transfer-progress -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.host.url=$SONAR_INSTANCE_URL -Dsonar.token=$SONAR_LOGIN_KEY -B -V
